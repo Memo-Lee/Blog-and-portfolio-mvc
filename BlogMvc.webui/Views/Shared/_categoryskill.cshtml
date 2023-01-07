@@ -1,0 +1,8 @@
+@model List<CategorySkill>
+
+@foreach (var categoryskill in Model)
+      {
+         <li>
+         <a href="#" class="list-group-item list-group-item-action">@categoryskill.SkillArea</a>
+         </li>
+      }

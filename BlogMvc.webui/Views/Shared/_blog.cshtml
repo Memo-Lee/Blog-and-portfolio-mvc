@@ -1,0 +1,21 @@
+@model Blog
+<div class="card-style">
+    <div class="card-group m-0 p-0">
+        <div class="card m-0 p-0 rounded-0">
+            <img class="card-img m-0 rounded-0" src="~/images/web_bg2.jpg"  alt="">
+            <div class="card-body">
+                <span style="font-size: 15px; color:black;" class="card-title">@Model.BlogHeader</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-details">
+        <small class="text-muted">
+        <span class="mr-5">Date : @Model.BlogDate</span>
+        <i class="fa-solid fa-eye"><span style="font-family: 'Lalezar', cursive;"> 54845613</span></i>
+        </small>
+    </div>
+    <div style="padding-bottom: 2px;" class="card-footer text-center">
+        <a asp-controller="Blog" asp-action="Details"
+        asp-route-url="@Model.BlogUrl" class="btn btn-info btn-sm">View</a>
+    </div>
+</div>

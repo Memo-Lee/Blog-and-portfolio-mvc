@@ -1,0 +1,44 @@
+@model SkillModel
+
+<form asp-controller="Admin" asp-action="SkillCreate" method="POST">
+    <div class="row m-0">
+        <div class="col-md-12">
+            <h3 class="mt-4 mb-4">Skill Create</h3>
+            <hr>
+            <div class="row m-0">
+                <div class="col-md-8 p-0">
+                    <div class="form-group row m-2">
+                        <label asp-for="SkillText" class="col-sm-2 col-form-label">SKILL TEXT</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SkillText">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="Url" class="col-sm-2 col-form-label">URL</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="Url">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="SkillPoint" class="col-sm-2 col-form-label">SKİLL POINT (%)</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SkillPoint">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-success">Add </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-checkbox">
+                        <input asp-for="IsApproved" type="checkbox" class="custom-control-input">
+                        <label asp-for="IsApproved" class="custom-control-label">To Approve</label>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        
+    </div>
+</form>

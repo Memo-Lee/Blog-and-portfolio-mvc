@@ -1,0 +1,148 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.fh5co-aside,.row ,.col-md-2,.col-md-4,.col-md-6,.col-md-8,.col-md-10,.col-md-12,
+.container-md,.container,main
+{
+  background-color:#15202B;
+  /* background-color:whitesmoke; */
+}
+
+a.navbar-brand {
+  white-space: normal;    
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* =======================================================
+*
+* 	Template Style 
+*	Edit this section
+*
+* ======================================================= */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.5);
+  background: whitesmoke;
+}
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: #228896;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover, a:active, a:focus {
+  color: #228896;
+  outline: none;
+  text-decoration: none !important;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+figure {
+  margin-bottom: 2.5em;
+  float: left;
+  width: 100%;
+}
+figure figcaption {
+  font-size: 16px;
+  width: 80%;
+  margin: 20px auto 0px auto;
+  color: #b3b3b3;
+  font-style: italic;
+  font-family: "Roboto", Arial, sans-serif;
+}
+@media screen and (max-width: 480px) {
+  figure figcaption {
+    width: 100%;
+  }
+}
+
+::-webkit-selection {
+  color: #fff;
+  background: #228896;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #228896;
+}
+
+::selection {
+  color: #fff;
+  background: #228896;
+}
+#fh5co-page {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+label,h1,h2,h3,h4,h5,h6
+{
+  color: white;
+}
+
+

@@ -1,0 +1,98 @@
+@model AboutListViewModel
+    @{
+    ViewBag.Title = "Hakkımda";
+    }
+@{
+    var popularClass=Model.Schools.Count>1? "popular":"";
+    var School = Model.Schools;
+}
+
+@{
+    var About=Model.Abouts;
+}
+
+
+    @if(About.Count == 0)
+    {
+        @await Html.PartialAsync("_noproduct")
+    }
+    else
+    {
+        <div class="row m-0">
+
+            <div class="col-md-12 m-0 text-center">
+                
+                <div class="row m-0">
+
+                    @foreach (var about in Model.Abouts)
+                    {
+                        <div class="col-md-12 mt-5 mb-5 p-0 text-white">
+                            @await Html.PartialAsync("_about", about)
+                        </div>
+                    }
+                    <br>
+
+                    <div id="school-main-id" class="col-md-12 mb-5 mt-3 p-0 school-main">
+                        <table class="table text-white table-bordered mt-5">
+                            <h3 class="fh5co-heading bg-info text-white">Eğitim Kariyerim</h3>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Okul</th>
+                                    <th scope="col">Bölüm</th>
+                                    <th scope="col">Yükseköğretim Programı</th>
+                                    <th scope="col">Mezuniyet Yılı</th>
+                                </tr>
+                            </thead>
+                            @foreach (var school in Model.Schools)
+                            {
+                                @await Html.PartialAsync("_school", school)
+                            }
+                            </table>
+                    </div>
+                     
+                    
+                    <div class="col-md-12 skills-main p-0 mt-5 mb-5">
+                        <h3 class="text-center bg-info text-white mt-3">Yeteneklerim</h3>
+                        <div class="row m-0 p-0">
+                             @foreach (var Skill in Model.Skills)
+                            {
+                                <div class="col-md-4 m-0 pt-2 pr-5">
+                                     @await Html.PartialAsync("_skill", Skill)
+                                </div>
+                            }                                        
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 p-0 mt-5 mb-5">
+                        <h3 class="text-center bg-info text-white mt-3">Work Experience</h3>
+                        <div class="row mt-5 m-0 p-0">
+                            @foreach (var career in Model.Careers)
+                            {
+                                @if (career.BusinessId%2==0)
+                                {
+                                    @await Html.PartialAsync("_career2", career)
+                                }else
+                                {
+                                    @await Html.PartialAsync("_career", career)
+                                }
+                                
+                            }            
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-5 text-left">
+                        @await Html.PartialAsync("_contact")            
+                    </div> 
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        
+    }
+
+    

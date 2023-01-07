@@ -1,0 +1,52 @@
+@model CategoryListViewModel
+
+<div class="row m-0">
+    <div class="col-md-12">
+        <h3 class=" mb-4 mt-4">Admin Categories</h3>
+        <hr>
+        <a class="btn btn-info btn-sm" href="/blogs">Blog List</a>
+
+        <table class="table text-white table-bordered mt-3">
+            <thead>
+                <tr>
+                    <td style="width: 30px;">Id</td>
+                    <td>Name</td>
+                    <td style="width: 150px;">
+                        <a class="btn btn-success btn-sm" href="/admin/categories/create"> Add Category </a>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Categories.Count>0)
+                {
+                        @foreach (var item in Model.Categories)
+                        {
+                        <tr>
+                            <td>#</td>
+                            <td>@item.Name</td>
+                        
+
+                            <td>
+                                <a href="/Admin/BlogCategoryEdit/@item.CategoryId" class="btn btn-warning btn-sm mr-2">Edit</a>
+                                
+                                <form action="/Admin/DeleteCategory" method="POST" style="display: inline-block;">
+                                    <input type="hidden" name="CategoryId" value="@item.CategoryId">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>                        
+                            </td>
+                        </tr>
+                        }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>
+                            No Categories
+                        </h3>
+                    </div>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>   

@@ -1,0 +1,17 @@
+@model List<Category>
+
+ <div class="list-group list-group-horizontal mb-4 mt-3">
+    <a href="/blogs" class="list-group-item list-group-item-action">
+       <i class="fa-solid fa-list"></i> Tüm Kategoriler
+    </a>
+
+    @foreach (var item in Model)
+    {
+        <a asp-controller="Blog"
+        asp-action="List" 
+        asp-route-category="@item.Url" 
+        class="list-group-item list-group-item-action @(ViewBag.SelectedCategories == item.Url?"active":"")">
+            @item.Name
+        </a>
+    }
+</div>   

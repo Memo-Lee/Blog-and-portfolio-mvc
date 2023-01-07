@@ -1,0 +1,48 @@
+@model LoginModel
+
+<form asp-controller="Account" asp-action="Login" method="POST">
+    <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+    <div class="row m-0">
+        <div class="col-md-12">
+            <h3 class="mt-4">Login</h3>
+            <hr>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row m-0">
+                <div class="col-md-4 p-0">
+                    <div class="form-group row m-2">
+                        <label asp-for="Email" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Email"></input>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Password"></input>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @* <div class="form-group row m-2">
+                        <label asp-for="UserName" class="col-sm-3 col-form-label">UserName</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Email"></input>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div> *@
+                    <div class="form-group row m-2">
+                        <div class="col-sm-10 offset-sm-4">
+                            <button type="submit" class="btn btn-success">Login</button>
+                            <a href="/account/forgotpassword" class="btn btn-link">Forgot Password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+ @section Scripts
+ {
+     
+ }

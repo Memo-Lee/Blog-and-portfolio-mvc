@@ -1,0 +1,18 @@
+@model Project
+<div class="card-group m-0 ">
+    <div class="card">
+        <img style="width: 100%; height:150px;" class="card-img-top m-0" src="~/images/web_bg2.jpg"  alt="">
+        <div class="card-body">
+            <h5 class="card-title">@Model.ProjectHeader</h5>
+            <p class="font-weight-light">By Mehmet Sönmez</p>
+            <small class="text-muted">
+            <span>@Model.ProjectDate</span>
+            </small>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="Project" asp-action="details"
+            asp-route-url="@Model.ProjectUrl" class="btn btn-info btn-sm">Görüntüle</a>
+        </div>
+    </div>
+</div>
+        

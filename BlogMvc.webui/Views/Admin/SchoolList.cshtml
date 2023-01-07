@@ -1,0 +1,62 @@
+@model AboutListViewModel
+<div class="row m-0">
+    <div class="col-md-12">
+        <h3 class="mt-4 mb-4">Admin School Controller</h3>
+        <hr>
+        <a class="btn btn-info btn-sm" href="/abouts">About</a>
+        <table class="table text-white table-bordered mt-3 m-0">
+            <thead>
+                <tr>
+                    <td style="width: 30px;"></td>
+                    <td>Okul</td>
+                    <td>Departman</td>
+                    <td style="width: 150px;">Yükseköğrenim</td>
+                    <td>Yıl</td>
+                    <td style="width: 200px;">
+                        <a class="btn btn-success btn-sm float-right" href="/admin/schools/create">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </a>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Schools.Count>0)
+                {
+                    @foreach (var item in Model.Schools)
+                    {
+                        <tr>
+                            <td><i class="fa-solid fa-school fa-2x"></i></td>
+                            <td>@item.SchoolName</td>
+                            <td>@item.SchoolEpisode</td>
+                            <td>@item.SchoolLisans</td>
+                            <td>@item.SchoolYear</td>
+                            <td>
+                                <a href="/Admin/SchoolEdit/@item.SchoolId" class="btn btn-warning btn-sm mr-2">
+                                   <i class="fa-solid fa-pen-to-square"></i> Edit
+                                </a>
+                                <form action="/Admin/SchoolDelete" method="POST" style="display: inline-block;">
+                                    <input type="hidden" name="SchoolId" value="@item.SchoolId">
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                       <i class="fa-solid fa-circle-xmark"></i> Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>
+                            No Products
+                        </h3>
+                    </div>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

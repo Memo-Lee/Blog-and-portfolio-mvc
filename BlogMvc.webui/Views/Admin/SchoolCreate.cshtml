@@ -1,0 +1,61 @@
+@model SchoolModel
+
+<form asp-controller="Admin" asp-action="SchoolCreate" method="POST">
+
+    <div class="row m-0">
+        <div class="col-md-12">
+            <h3 class="mt-4 mb-4">School Create</h3>
+            <hr>
+                <div class="row m-0">
+                    <div class="col-md-8 p-0">
+                        <div class="form-group row m-2">
+                            <label asp-for="SchoolName" class="col-sm-2 col-form-label">School Name</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control" asp-for="SchoolName">
+                            </div>
+                        </div>
+                        <div class="form-group row m-2">
+                            <label asp-for="SchoolEpisode" class="col-sm-2 col-form-label">School Episode</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control" asp-for="SchoolEpisode">
+                            </div>
+                        </div>
+                        <div class="form-group row m-2">
+                            <label asp-for="SchoolLisans" class="col-sm-2 col-form-label">School Lisans</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control" asp-for="SchoolLisans">
+                            </div>
+                        </div>
+                        <div class="form-group row m-2">
+                            <label asp-for="SchoolYear" class="col-sm-2 col-form-label">School Year</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control" asp-for="SchoolYear">
+                            </div>
+                        </div>
+                        <div class="form-group row m-2">
+                            <label asp-for="SchoolUrl" class="col-sm-2 col-form-label">Url</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control" asp-for="SchoolUrl">
+                            </div>
+                        </div>
+                        <div class="form-group row m-2">
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" class="btn btn-primary">Add </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+ @section Scripts
+ {
+     <script src="/modules/ckeditor/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace('editor');
+     </script>
+ }

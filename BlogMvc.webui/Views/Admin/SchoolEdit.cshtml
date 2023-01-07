@@ -1,0 +1,82 @@
+@model SchoolModel
+
+
+<form asp-controller="Admin" asp-action="SchoolEdit" method="POST" enctype="multipart/form-data">
+    @* verileri server'a dosya olarak taşıyan framework 'enctype' *@
+    <div class="row m-0">
+        <div class="col-md-12">
+        <h3 class="mt-4 mb-4">School Edit</h3>
+        <hr>
+            <div class="row m-0">
+                <div class="col-md-8 p-0">
+                    <input type="hidden" name="SchoolId" value="@Model.SchoolId">
+                    <div class="form-group row m-2">
+                        <label asp-for="SchoolName" class="col-sm-2 col-form-label">SCHOOL NAME</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SchoolName">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="SchoolEpisode" class="col-sm-2 col-form-label">SCHOOL EPISODE</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SchoolEpisode">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="SchoolLisans" class="col-sm-2 col-form-label">SCHOOL LICENCE</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SchoolLisans">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="SchoolYear" class="col-sm-2 col-form-label">SCHOOL YEAR</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="SchoolYear">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="SchoolUrl" class="col-sm-2 col-form-label">SCHOOL URL</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="SchoolUrl">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-checkbox">
+                        <input asp-for="IsApproved" type="checkbox" class="custom-control-input">
+                        <label asp-for="IsApproved" class="custom-control-label">Yayınlama Onayı</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* <div class="col-md-4">
+
+            @foreach (var item in (List<Category>)ViewBag.Categories)
+            {
+                <div class="custom-control custom-checkbox">
+                    Any metodu bool (true-false) değer döndürür , eğer datadan gelen ile eşleşiyorsa
+                    checked metodu ile checkboxlar işaretlenir. 
+                    <input type="checkbox" class="custom-control-input" 
+                    id="category_@(item.CategoryId)" 
+                    name="categoryIds"
+                    value="@item.CategoryId"
+                    @(Model.SelectedCategories.Any(i=>i.CategoryId==item.CategoryId)?"checked":"")>
+                    <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+                </div>
+            }
+        </div>*@
+    </div>
+ </form>
+
+ @section Scripts
+ {
+     <script src="/modules/ckeditor/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace('editor');
+     </script>
+ }

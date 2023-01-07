@@ -1,0 +1,109 @@
+﻿@model HomeBannerListViewModel
+@{
+    ViewBag.Title = "Home   ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* @section ProfilePhotoLayout
+{   
+    <img style="width: 100px; height:100px;"
+        src="/images/vesikalik2.jpeg"
+        @* src="@foreach (var profileimg in Model.ProfilePhotos)
+        {
+            @profileimg.ProfilePhotoUrl
+        }" 
+        alt="user-image"
+    />
+} 
+
+@section SocialMediaLayout
+{
+    @foreach (var SocialMedia in Model.SocialMedias)
+    {
+        <li>
+            <a href="@SocialMedia.SocialMediaUrl">
+                @Html.Raw(@SocialMedia.SocialMediaIcon)
+            </a>
+        </li>
+    }
+} *@
+@{
+    var noiceyazisi = Model.NoiceTexts;
+}
+    <div style="margin-right: 0;" class="row p-0">
+        <div class="fh5co-index-main m-0 p-0">
+            <div class="row m-0 p-0">
+                <div style="width: 100%; height:35px;" class="menu-slide-container m-0 p-0">
+                    <a>
+                        <button id="menu_slide_button" style="width: 100%; height:100%;" class="menu-slide bg-success rounded-0 m-0 p-0">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-12 m-0 p-0">
+                    @if (noiceyazisi.Count>0)
+                    {
+                        @foreach (var item in Model.NoiceTexts)
+                        {
+                            <div class="row m-0">
+                                <div class="wrapper col-md-12 text-center">
+                                    <span class="typing-demo">@Html.Raw(item.NoiceContent)</span>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row m-0 p-0">
+
+                <div id="slider-main-id" class="slider-container col-md-12 m-0 p-0">
+        
+                    <a href="/home/homemenu" id="slide-edit-id" class="btn-sm btn-warning slide-edit rounded-0 text-center">
+                        <i class="fa-solid fa-pen 1x"></i>
+                    </a>
+                    
+                    @foreach (var homebanner in Model.HomeBanners)
+                    {
+                        @await Html.PartialAsync("_homebanner", homebanner)
+                    }
+
+                    <div id="slider_count" class="count-div text-center">
+                            <i class="fa-solid fa-circle fa-1x slide-count"></i>
+                            <i class="fa-solid fa-circle fa-1x slide-count"></i>
+                            <i class="fa-solid fa-circle fa-1x slide-count"></i>
+                    </div>
+
+                </div>
+                
+            </div>
+                            
+            <hr>
+            <div class="row m-0 mt-5 text-center">
+                    @await Html.PartialAsync("_personal")
+            </div>
+            <div class="text-center">
+                    <h3 class="text-white" data-animate-effect="fadeInLeft">Son Yayınlananlar</h3>
+            </div>
+            <hr>
+            <h5 class="text-white ml-3">Blog Yazılarım</h5>
+            <div class="row m-0">
+                @foreach (var blog in Model.Blogs)
+                {
+                <div class="col-md-3 p-3 d-inline-block">
+                    @await Html.PartialAsync("_blog", blog)
+                </div>
+                }
+            </div>
+
+            <div class="row m-0 ml-3">
+                @await Html.PartialAsync("_contact")                
+            </div>
+    
+        </div>
+    </div>
+
+@section Scripts
+{
+    
+}
+    

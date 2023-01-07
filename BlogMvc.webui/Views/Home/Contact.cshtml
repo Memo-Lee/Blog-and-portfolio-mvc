@@ -1,0 +1,75 @@
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row m-0 p-0">
+    <div class="col-md-12">
+        <form>
+            <div class="form-row mt-3 mb-3">
+                <span class="text-white font-weight-light bg-danger">Sizin hakkınızda fikir sahibi olmam için lütfen detaylı bilgi veriniz !</span>
+            </div>
+            <div class="form-row">
+                
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer03">FullName *</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="FullName" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid first name and last name.
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="validationServerUsername">Gmail *</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend3">Gmail</span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" id="validationServerGmail" placeholder="Gmail" aria-describedby="inputGroupPrepend3" required>
+                        <div class="invalid-feedback">
+                        Please provide a valid gmail.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer03">City</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City (optional)">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer04">State</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State (optional)">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer03">Linkedin</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Linkedin (optional)">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer04">Github</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="Github (optional)">
+                </div>
+
+            </div>
+
+            <label for="validationServer05">Text *</label>
+            <div class="form-group">
+                <textarea name="" id="contactmessage" placeholder=" Message" cols="55" rows="5" required></textarea>
+                <div class="form-check">
+                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                    <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                    You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-info" type="submit">Submit form</button>
+            </form>
+    </div>
+</div>

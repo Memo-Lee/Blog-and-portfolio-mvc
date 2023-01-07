@@ -1,0 +1,52 @@
+@model CategoryProjectListViewModel
+
+<div class="row m-0">
+    
+    <div class="col-md-12 mt-3">
+        <h3 class="mt-4 mb-4">Admin Projects Categories</h3>
+        <hr>
+        <a class="btn btn-success btn-sm" href="/admin/projectcategory/create"> Add Category </a>
+        <a class="btn btn-info btn-sm" href="/projects">Project List</a>
+
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <td style="width: 30px;">Id</td>
+                    <td>Name</td>
+                    <td style="width: 150px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CategoryProjects.Count>0)
+                {
+                        @foreach (var item in Model.CategoryProjects)
+                        {
+                        <tr>
+                            <td>@item.CategoryProjectId</td>
+                            <td>@item.Name</td>
+                        
+
+                            <td>
+                                <a href="/Admin/ProjectCategoryEdit/@item.CategoryProjectId" class="btn btn-warning btn-sm mr-2">Edit</a>
+                                
+                                <form action="/Admin/CategoryProjectDelete" method="POST" style="display: inline-block;">
+                                    <input type="hidden" name="CategoryProjectId" value="@item.CategoryProjectId">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>                        
+                            </td>
+                        </tr>
+                        }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>
+                            No Categories
+                        </h3>
+                    </div>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>   

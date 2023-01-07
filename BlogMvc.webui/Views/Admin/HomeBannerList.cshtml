@@ -1,0 +1,67 @@
+@model HomeBannerListViewModel
+<div class="row m-0">
+    <div class="col-md-12">
+        <h3 class="text-white mt-4 mb-4">Home Banner</h3>
+        <hr>
+        <a class="btn btn-info btn-sm" href="/home/index">Home</a>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr class="text-white">
+                    <td style="width: 30px;"></td>
+                    <td style="width: 100px;">Image</td>
+                    <td>Name</td>
+                    <td>Text</td>
+                    <td style="width: 60px;">Anasayfa</td>
+                    <td class="text-right" style="width: 150px;">
+                        <a class="btn btn-success btn-sm" href="/Admin/homebanners/create">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </a>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.HomeBanners.Count>0)
+                {
+                    @foreach (var item in Model.HomeBanners)
+                    {
+                        <tr class="text-white">
+                            <td><i class="fa-solid fa-image fa-2x"></i></td>
+                            <td><img src="~/images/@item.Bannerİmage" width="80"></td>
+                            <td>@item.BannerHeader</td>
+                            <td>@item.BannerText</td>
+                            <td>
+                                @if (item.IsHome)
+                                {
+                                    <i class="fas fa-check-circle text-success"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle text danger"></i>
+                                }
+                            </td>
+                            <td>
+                                <a href="/Admin/HomeBannerEdit/@item.BannerId" class="btn btn-warning btn-sm mr-2">Edit</a>
+                                <form action="/Admin/HomeBannerDelete" method="POST" style="display: inline-block;">
+                                    <input type="hidden" name="BannerId" value="@item.BannerId">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>
+                            No Products
+                        </h3>
+                    </div>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

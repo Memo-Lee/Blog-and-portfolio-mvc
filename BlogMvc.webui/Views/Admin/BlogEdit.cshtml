@@ -1,0 +1,81 @@
+@model BlogModel
+
+    <h3 class="mt-4 mb-4">Blog Edit</h3>
+    <hr>
+        @* verileri server'a dosya olarak taşıyan framework 'enctype' *@
+        <form asp-controller="Admin" asp-action="AdminBlogList" method="POST" enctype="multipart/form-data">
+        <div class="row m-0">
+            <div class="col-md-12">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row m-0">
+                        <div class="col-md-9 p-0">
+                            <div class="form-group row m-2">
+                                <input type="hidden" name="BlogId" value="@Model.BlogId">
+                                <label asp-for="BlogHeader" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" asp-for="BlogHeader">
+                                </div>
+                            </div>
+                            <div class="form-group row m-2">
+                                <label asp-for="BlogUrl" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" asp-for="BlogUrl">
+                                </div>
+                            </div>
+                            <div class="form-group row m-2">
+                                <label asp-for="BlogText" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <textarea id="editor" class="form-control" asp-for="BlogText"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row m-2">
+                                <label asp-for="BlogImageUrl" class="col-sm-2 col-form-label"> Image Edit File</label>
+                                <div class="col-sm-10">
+                                    <input type="hidden" asp-for="BlogImageUrl">
+                                        <img src="~/images/@Model.BlogImageUrl" width="80" height="80">
+                                    <input type="file" name="file">
+                                    @* buradaki file controller için önemli *@
+                                </div>
+                            </div>
+                            <div class="form-group row m-2">
+                                <div class="col-sm-10 offset-sm-2">
+                                    <button type="submit" class="btn btn-primary">Save Product</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-0">
+                            @foreach (var item in (List<Category>)ViewBag.Categories)
+                                {
+                                <div class="custom-control custom-checkbox mt-3">
+                                    @* Any metodu bool (true-false) değer döndürür , eğer datadan gelen ile eşleşiyorsa
+                                        checked metodu ile checkboxlar işaretlenir. *@
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="category_@(item.CategoryId)"
+                                        name="categoryIds"
+                                        value="@item.CategoryId"
+                                        @(Model.SelectedCategories.Any(i=>i.CategoryId==item.CategoryId)?"checked":"")>
+                                    <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+                                </div>
+                                }
+                                <hr>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input asp-for="IsApproved" type="checkbox" class="custom-control-input">
+                                    <label asp-for="IsApproved" class="custom-control-label">Onaylı</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input asp-for="IsHome" type="checkbox" class="custom-control-input">
+                                    <label asp-for="IsHome" class="custom-control-label">Anasayfa</label>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+ @section Scripts
+ {
+     <script src="/modules/ckeditor/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace('editor');
+     </script>
+ }

@@ -1,0 +1,53 @@
+/* ASİDE MENU SLİDER */
+.aside-open
+{
+    position: fixed;
+    height: 400px;
+    top: 0;
+    left: -80px;
+    background-color: red;
+}
+.aside-close
+{
+    position: fixed;
+    top: 0;
+    left: 200px;
+}
+.aside-open-icon
+{
+    width: 80px;
+    height:60px;
+}
+.aside-sm-icon
+{
+    width: 80px;
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    background-color: aqua;
+}
+.aside-sm-icon li
+{
+    list-style-type: none;
+}
+
+.menu-slide,.menu-slide-container
+{
+    margin-top: 0;
+    z-index: 1;
+    display: none;
+}
+@media screen and (max-width:768px) {
+
+    .menu-slide{
+        display: block;
+    }
+    .menu-slide-container{
+      display: block;
+    }
+
+}
+

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="faviconuzayli.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="~/css/site.css">
+	<link rel="stylesheet" href="~/css/aside.css">
+	<link rel="stylesheet" href="~/css/aside_off.css">
+	<link rel="stylesheet" href="~/css/avatar.css">
+	<link rel="stylesheet" href="~/css/noice.css">
+	<link rel="stylesheet" href="~/css/slider.css">
+	<link rel="stylesheet" href="~/css/blog.css">
+	<link rel="stylesheet" href="~/css/project.css">
+	<link rel="stylesheet" href="~/css/about.css">
+    @RenderSection("Css",false)
+</head>
+<body style="background-color:#15202B;">
+    <div id="site-responsive-m" class="row m-0">
+        <div id="site-responsive-2" class="col-md-2">
+            @await Html.PartialAsync("_navbar")
+        </div>
+        <div id="site-responsive-10" class="col-md-10 p-0">
+            <main id="site-responsive-main" style="width:100%; height: 721px;">
+                
+                    @if(TempData["message"]!=null)
+                    {
+                        <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))"/>
+                    }
+                    @RenderBody()
+            </main>
+        </div>
+      
+    </div>
+        
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/1541754fcd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/banner.js" asp-append-version="true"></script>
+    <script src="~/js/aside.js" asp-append-version="true"></script>
+    <script src="~/js/blog.js" asp-append-version="true"></script>
+    <script src="~/js/project.js" asp-append-version="true"></script>
+    <script src="~/js/about.js" asp-append-version="true"></script>
+    <script src="~/animation/avatar.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

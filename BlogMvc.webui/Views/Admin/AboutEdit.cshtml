@@ -1,0 +1,51 @@
+@model AboutModel
+
+
+<form asp-controller="Admin" asp-action="AboutEdit" method="POST" enctype="multipart/form-data">
+    @* verileri server'a dosya olarak taşıyan framework 'enctype' *@
+    <div class="row m-0">
+
+        <div class="col-md-12">
+        <h3 class="mt-4 mb-4">About Edit</h3>
+        <hr>
+            <div class="row m-0">
+                <div class="col-md-9">
+                    <input type="hidden" name="AboutBaslikId" value="@Model.AboutBaslikId">
+                    <div class="form-group row m-2">
+                        <label asp-for="AboutBaslik" class="col-sm-2 col-form-label">HEADER EDİT</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" asp-for="AboutBaslik">
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <label asp-for="AboutText" class="col-sm-2 col-form-label">TEXT EDİT</label>
+                        <div class="col-sm-10">
+                            <textarea id="editor" class="form-control" asp-for="AboutText"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row m-2">
+                        <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                    </div>
+                <div class="col-md-3">
+                    <div class="custom-control custom-checkbox">
+                        <input asp-for="IsApproved" type="checkbox" class="custom-control-input">
+                        <label asp-for="IsApproved" class="custom-control-label">Yayınlama Onayı</label>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+ </form>
+
+ @section Scripts
+ {
+     <script src="/modules/ckeditor/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace('editor');
+         config.autoParagraph = false
+     </script>
+ }

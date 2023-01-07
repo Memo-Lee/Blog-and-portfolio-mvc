@@ -1,0 +1,62 @@
+@model CategoryListViewSkillModel
+
+<div class="row m-0">
+    <div class="col-md-12">
+        <h3 class="mt-4 mb-4">Skill Category Controller</h3>
+        <hr>
+        <a class="btn btn-info btn-sm" href="/abouts">About</a>
+        <a asp-controller="Admin" asp-action="SkillList" class="btn btn-info btn-sm">Skills</a>
+        <table class="table text-white table-bordered m-0 mt-3">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Header</td>
+                    <td>Onaylı</td>
+                    <td><a class="btn btn-success btn-sm float-right" href="/Admin/skillcategory/create">Add</a></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CategorySkills.Count>0)
+                {
+                    @foreach (var item in Model.CategorySkills)
+                    {
+                        <tr>
+                            <td><i class="fa-solid fa-address-card fa-2x"></i></td>
+                            <td>@item.SkillArea</td>
+                            <td>
+                                @if (item.IsApproved)
+                                {
+                                    <i class="fas fa-check-circle text-success"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle text danger"></i>
+                                }
+                            </td>
+                            <td style="width: 200px;">
+                                <a href="/Admin/SkillCategoryEdit/@item.CategorySkillId" class="btn btn-warning btn-sm mr-2">Edit</a>
+                                <form action="/Admin/CategorySkillDelete" method="POST" style="display: inline-block;">
+                                    <input type="hidden" name="CategorySkillId" value="@item.CategorySkillId">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                            
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>
+                            No Products
+                        </h3>
+                    </div>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

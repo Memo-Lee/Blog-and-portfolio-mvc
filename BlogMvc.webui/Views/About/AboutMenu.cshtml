@@ -1,0 +1,46 @@
+@model AboutListViewModel
+
+    <div class="row p-0 m-0 bg-info">
+        <div class="col-md-12">
+            <div class="container d-flex flex justify-content-around">
+                <a href="/admin/abouts">
+                    <button style="width: 200px; height: 200px;">
+                        <i class="fa-solid fa-comments"></i><br>
+                        <span>About Text</span>
+                    </button>
+                </a>
+                @* @foreach (var item in Model.NoiceTexts)
+                {
+                 <a href="/Admin/NoiceTextEdit/@item.NoiceId">
+                 </a>
+                 } *@
+                <a href="/admin/schools">
+                    <button style="width: 200px; height: 200px;">
+                        <i class="fa-solid fa-school"></i><br>
+                        <span>Schools</span>
+                    </button>
+                </a>
+                
+                <a href="/admin/skills">
+                    <button style="width: 200px; height: 200px;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i><br>
+                        <span>Skills</span>
+                    </button>
+                </a>
+                @* @foreach (var item2 in Model.ProfilePhotos)
+                {
+                <a href="/Admin/ProfilPhotoEdit/@item2.ProfilePhotoId">
+                </a>
+                 } *@
+                 <a href="/admin/careers">
+                    <button style="width: 200px; height: 200px;">
+                        <i class="fa-solid fa-briefcase"></i><br>
+                        <span>Careers</span>
+                    </button>
+                 </a>
+               
+                
+            </div>
+        </div>
+    </div>
+

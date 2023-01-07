@@ -1,0 +1,40 @@
+@model CategorySkillModel
+
+ <form asp-controller="Admin" asp-action="SkillCategoryEdit" method="POST" enctype="multipart/form-data">
+    @* verileri server'a dosya olarak taşıyan framework 'enctype'  *@
+    <div class="row m-0">
+        <div class="col-md-12">
+        <h3 class="mt-4 mb-4">Skill Category Edit</h3>
+        <hr>
+        <div class="row m-0">
+            <div class="col-md-8 p-0">
+                <input type="hidden" name="CategorySkillId" value="@Model.CategorySkillId">
+                <div class="form-group row m-2">
+                    <label asp-for="SkillArea" class="col-sm-2 col-form-label">SKILL AREA</label>
+                    <div class="col-sm-10">
+                        <input  class="form-control" asp-for="SkillArea">
+                    </div>
+                </div>
+                <div class="form-group row m-2">
+                    <label asp-for="Url" class="col-sm-2 col-form-label">URL</label>
+                    <div class="col-sm-10">
+                        <input  class="form-control" asp-for="Url">
+                    </div>
+                </div>
+                <div class="form-group row m-2">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-control custom-checkbox">
+                    <input asp-for="IsApproved" type="checkbox" class="custom-control-input">
+                    <label asp-for="IsApproved" class="custom-control-label">To Approve</label>
+                </div>
+            </div>
+        </div>
+                
+        </div>
+    </div>
+ </form>

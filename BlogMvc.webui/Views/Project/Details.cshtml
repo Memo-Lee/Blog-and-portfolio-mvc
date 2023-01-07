@@ -1,0 +1,21 @@
+ @model ProjectDetailModel
+
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            
+                <h1 class="mb-3">@Model.Project.ProjectHeader</h1> <hr>
+                @foreach (var item in Model.CategoryProjects)
+                {
+                <a asp-controller="project" asp-action="list" asp-route-category="@item.Url" class="btn btn-link p-0 mb-3">@item.Name</a>
+                }
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>@Model.Project.ProjectImageUrl</span>
+                        <p class="p-3">@Html.Raw(Model.Project.ProjectText)</p>
+                    </div>
+                </div>
+        
+        </div>
+    </div>
+    

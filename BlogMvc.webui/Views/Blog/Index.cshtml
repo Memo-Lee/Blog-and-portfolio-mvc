@@ -1,0 +1,13 @@
+@{
+    ViewBag.Title = "Blog Yazılarım";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Categories
+{
+    @await Component.InvokeAsync("Categories")
+}
+
+@section scripts{
+    // Add something here
+}

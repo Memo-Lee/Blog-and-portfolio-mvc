@@ -1,0 +1,95 @@
+.slider-container
+{
+    width: 100%;
+    height: 660px;
+    margin: 0;
+    padding: 0;
+}
+.slide
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    box-shadow: 1px 1px 1px white;
+}
+.slide-edit
+{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 0;
+    z-index: 1;
+    display: none;
+}
+.slide-img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content
+{
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    background-color: transparent;
+    box-shadow: 1px 1px 5px 1px white;
+}
+.slide-content:hover
+{
+    transition: 0.5s;
+    transform: scale(0.95);
+}
+.slide-content h1
+{
+    color: white;
+    font-size: 30px;
+}
+.slide-content span
+{
+    font-size: 20px;
+    color:white;
+    padding-bottom: 50px;
+}
+.btn-slide-container
+{
+    position:absolute;
+    display: flex;
+    width: 90%;
+    top: 30%;
+    left: 5%;
+    background-color: transparent;
+    justify-content:space-between;
+}
+.btn-slide-container a
+{
+    font-size: 10px;
+}
+.count-div
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:85%;
+    background-color: transparent;
+
+}
+
+.slide-count
+{
+  color:rgb(265, 265, 265, 0.3);
+}
+.countcolor
+{
+    color:rgb(265, 265, 265, 0.9);
+}
+
+.fa-active
+{
+    opacity: 1;
+}
+.BtnL,.BtnR .fa-solid:hover
+{
+    color: red
+}
