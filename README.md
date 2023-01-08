@@ -21,13 +21,14 @@ This project is a dynamic blog and portfolio website application created using C
 * EF Core Migrations Kullanma
 * Servis Sınıflarında Context kullanma
 * DbContext & Migrations
-* Projenin mimarisi
+* UnitOfWork Pattern
 
 ## Güvenlik ve Kimlik denetiminin aktifleştirilmesi
 
 * Controller sınıfı metodlarında kimlik kısıtlama
 * Veri sahipliği ile kullanıcıları kısıtlama
 * Rol tabanlı yetkilendirme, kısıtlama
+* Form Güvenliğinin Sağlanması - Csrf Token
   
 ## ASP.NET CORE Web Api
 
