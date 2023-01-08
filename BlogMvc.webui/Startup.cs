@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogMvc.data;
@@ -8,9 +9,15 @@ using BlogMvc.data.Concrete.EfCore;
 using BlogMvc.services;
 using BlogMvc.webui.EmailServices;
 using BlogMvc.webui.Identity;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 
 namespace BlogMvc.webui
 {
@@ -75,7 +82,7 @@ namespace BlogMvc.webui
             
         }
 
-        public void Configure(WebApplication app, IWebHostEnvironment env,
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
         IConfiguration configuration , UserManager<ApplicationUser> userManager,RoleManager<IdentityRole> roleManager)
         {
             app.UseStaticFiles();
@@ -86,7 +93,7 @@ namespace BlogMvc.webui
                     Path.Combine(Directory.GetCurrentDirectory(),"node_modules")),
                     RequestPath="/modules"
             });
-            if (!app.Environment.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 SeedDatabase.Seed();
                 app.UseDeveloperExceptionPage();
@@ -116,8 +123,6 @@ namespace BlogMvc.webui
             
             });
             SeedIdentity.Seed(userManager,roleManager,configuration).Wait(); // Wait() -> beacuse async
-            app.MapRazorPages();
-            app.Run();
         }
 
     }
