@@ -41,5 +41,5 @@ This project is a dynamic blog and portfolio website application created using C
 
 ## Gerekli Araç ve Kurulumlar
 
-* [.NET Core 6.0.0 SDK](https://dotnet.microsoft.com/download)
+* [.NET Core 5.0.0 SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
