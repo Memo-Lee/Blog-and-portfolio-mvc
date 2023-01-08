@@ -30,7 +30,9 @@ namespace BlogMvc.webui
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationContext>(b => b.UseSqlite("Data Source=blogDb"));
+            //connectionString
+            services.AddDbContext<ApplicationContext>(b => b.UseSqlite(_configuration.GetConnectionString("SqliteConnection")));
+            services.AddDbContext<BlogContext>(b => b.UseSqlite(_configuration.GetConnectionString("SqliteConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {

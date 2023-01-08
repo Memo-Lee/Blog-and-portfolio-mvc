@@ -11,69 +11,69 @@ namespace BlogMvc.data.Concrete.EfCore
     
         public static void Seed()
         {
-            var context = new BlogContext();
+            // var context = new BlogContext();
             
-                if (context.Database.GetPendingMigrations().Count()==0)
-                {
+            //     if (context.Database.GetPendingMigrations().Count()==0)
+            //     {
                 
-                    if (context.Categories.Count() == 0)
-                    {
-                        context.Categories.AddRange(Categories);
-                    }
-                    if (context.CategoryProjects.Count() == 0)
-                    {
-                        context.CategoryProjects.AddRange(CategoryProjects);
-                    }
-                    if (context.CategorySkills.Count() == 0)
-                    {
-                        context.CategorySkills.AddRange(CategorySkills);
-                    }
-                    if (context.Blogs.Count() == 0 )
-                    {
-                        context.AddRange(Blogs);
-                        context.AddRange(BlogCategories);
-                    }
-                    if (context.Projects.Count()==0)
-                    {
-                        context.AddRange(Projects);
-                        context.AddRange(ProjectCategories);
-                    }
-                    if (context.Abouts.Count() == 0)
-                    {
-                        context.AddRange(Abouts);
-                    }
-                    if (context.Schools.Count() == 0)
-                    {
-                        context.AddRange(Schools);
-                    }
-                    if (context.Skills.Count() == 0)
-                    {
-                        context.AddRange(Skills);
-                        context.AddRange(SkillCategories);
-                    }
-                    if (context.HomeBanners.Count() == 0)
-                    {
-                        context.AddRange(HomeBanners);
-                    }
-                    if (context.NoiceTexts.Count() == 0)
-                    {
-                        context.AddRange(NoiceTexts);
-                    }
-                    if (context.Careers.Count() == 0)
-                    {
-                        context.AddRange(Careers);
-                    }
-                    if (context.SocialMedias.Count() == 0)
-                    {
-                        context.AddRange(SocialMedias);
-                    }
-                    if (context.ProfilePhotos.Count() == 0)
-                    {
-                        context.AddRange(ProfilePhotos);
-                    }
+            //         if (context.Categories.Count() == 0)
+            //         {
+            //             context.Categories.AddRange(Categories);
+            //         }
+            //         if (context.CategoryProjects.Count() == 0)
+            //         {
+            //             context.CategoryProjects.AddRange(CategoryProjects);
+            //         }
+            //         if (context.CategorySkills.Count() == 0)
+            //         {
+            //             context.CategorySkills.AddRange(CategorySkills);
+            //         }
+            //         if (context.Blogs.Count() == 0 )
+            //         {
+            //             context.AddRange(Blogs);
+            //             context.AddRange(BlogCategories);
+            //         }
+            //         if (context.Projects.Count()==0)
+            //         {
+            //             context.AddRange(Projects);
+            //             context.AddRange(ProjectCategories);
+            //         }
+            //         if (context.Abouts.Count() == 0)
+            //         {
+            //             context.AddRange(Abouts);
+            //         }
+            //         if (context.Schools.Count() == 0)
+            //         {
+            //             context.AddRange(Schools);
+            //         }
+            //         if (context.Skills.Count() == 0)
+            //         {
+            //             context.AddRange(Skills);
+            //             context.AddRange(SkillCategories);
+            //         }
+            //         if (context.HomeBanners.Count() == 0)
+            //         {
+            //             context.AddRange(HomeBanners);
+            //         }
+            //         if (context.NoiceTexts.Count() == 0)
+            //         {
+            //             context.AddRange(NoiceTexts);
+            //         }
+            //         if (context.Careers.Count() == 0)
+            //         {
+            //             context.AddRange(Careers);
+            //         }
+            //         if (context.SocialMedias.Count() == 0)
+            //         {
+            //             context.AddRange(SocialMedias);
+            //         }
+            //         if (context.ProfilePhotos.Count() == 0)
+            //         {
+            //             context.AddRange(ProfilePhotos);
+            //         }
                     
-                }
-                context.SaveChanges();
+            //     }
+            //     context.SaveChanges();
         }
         private static Category[] Categories = {
             new Category(){Name="Yazılım",Url="yazilim"},

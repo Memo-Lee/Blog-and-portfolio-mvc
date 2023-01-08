@@ -7,15 +7,21 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreNoiceTextRepository:EfCoreGenericRepository<NoiceText, BlogContext>, INoiceTextRepository
+    public class EfCoreNoiceTextRepository:EfCoreGenericRepository<NoiceText>, INoiceTextRepository
     {
+        public EfCoreNoiceTextRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<NoiceText> GetHomePageNoiceText()
         {
-            using (var context = new BlogContext())
-            {
-                return context.NoiceTexts
-                                .Where(i=>i.IsHome).ToList();
-            }
+
+            return BlogContext.NoiceTexts
+                            .Where(i=>i.IsHome).ToList();
+            
         }
         
     }

@@ -6,18 +6,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreCategoryProjectRepository : EfCoreGenericRepository<CategoryPj, BlogContext>, ICategoryProjectRepository
+    public class EfCoreCategoryProjectRepository : EfCoreGenericRepository<CategoryPj>, ICategoryProjectRepository
     {
+        public EfCoreCategoryProjectRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public CategoryPj GetByIdWithProjects(int CategoryId)
         {
-            using (var context = new BlogContext())
-            {
-                return context.CategoryProjects
-                                    .Where(i=>i.CategoryProjectId==CategoryId)
-                                    .Include(i=>i.ProjectCategories)
-                                    .ThenInclude(i=>i.Project)
-                                    .FirstOrDefault();
-            }
+            
+            return BlogContext.CategoryProjects
+                                .Where(i=>i.CategoryProjectId==CategoryId)
+                                .Include(i=>i.ProjectCategories)
+                                .ThenInclude(i=>i.Project)
+                                .FirstOrDefault();
+            
         }
 
         public List<CategoryPj> GetPopularCategories()

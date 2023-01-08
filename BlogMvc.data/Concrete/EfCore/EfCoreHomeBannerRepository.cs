@@ -7,15 +7,19 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreHomeBannerRepository : EfCoreGenericRepository<HomeBanner, BlogContext>, IHomeBannerRepository
+    public class EfCoreHomeBannerRepository : EfCoreGenericRepository<HomeBanner>, IHomeBannerRepository
     {
+        public EfCoreHomeBannerRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<HomeBanner> GetHomePageHomeBanner()
         {
-            using (var context = new BlogContext())
-            {
-                return context.HomeBanners
-                                .Where(i=>i.IsHome).ToList();
-            }
+            return BlogContext.HomeBanners
+                            .Where(i=>i.IsHome).ToList();
         }
     }
 }

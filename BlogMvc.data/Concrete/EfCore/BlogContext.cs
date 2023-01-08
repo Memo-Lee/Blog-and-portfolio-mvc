@@ -14,6 +14,7 @@ namespace BlogMvc.data
         {
 
         }
+        //constructor
         public BlogContext (DbContextOptions options) : base(options)
         { }
 

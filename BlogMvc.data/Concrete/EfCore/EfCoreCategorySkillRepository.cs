@@ -8,18 +8,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreCategorySkillRepository : EfCoreGenericRepository<CategorySkill, BlogContext>, ICategorySkillRepository
+    public class EfCoreCategorySkillRepository : EfCoreGenericRepository<CategorySkill>, ICategorySkillRepository
     {
+        public EfCoreCategorySkillRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public CategorySkill GetByIdWithSkills(int CategoryId)
         {
-            using (var context = new BlogContext())
-            {
-                return context.CategorySkills
-                                    .Where(i=>i.CategorySkillId==CategoryId)
-                                    .Include(i=>i.SkillCategories)
-                                    .ThenInclude(i=>i.Skill)
-                                    .FirstOrDefault();
-            }
+           
+            return BlogContext.CategorySkills
+                                .Where(i=>i.CategorySkillId==CategoryId)
+                                .Include(i=>i.SkillCategories)
+                                .ThenInclude(i=>i.Skill)
+                                .FirstOrDefault();
+            
         }
     }
 }

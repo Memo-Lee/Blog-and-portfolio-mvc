@@ -5,15 +5,21 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreCareerRepository:EfCoreGenericRepository<Career,BlogContext>,ICareerRepository
+    public class EfCoreCareerRepository:EfCoreGenericRepository<Career>,ICareerRepository
     {
+        public EfCoreCareerRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<Career> GetPageCareer()
         {
-            using (var context = new BlogContext())
-            {
-                return context.Careers
-                                .Where(i=>i.IsApproved).ToList();
-            }
+            
+            return BlogContext.Careers
+                            .Where(i=>i.IsApproved).ToList();
+        
         }
     }
 }

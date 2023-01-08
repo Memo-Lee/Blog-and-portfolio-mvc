@@ -5,15 +5,20 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreAboutRepository : EfCoreGenericRepository<About, BlogContext>, IAboutRepository
+    public class EfCoreAboutRepository : EfCoreGenericRepository<About>, IAboutRepository
     {
+        public EfCoreAboutRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<About> GetPageAbout()
         {
-            using (var context = new BlogContext())
-            {
-                    return context.Abouts
+          
+                    return BlogContext.Abouts
                                     .Where(i=>i.IsApproved).ToList();
-            }
         }
     }
 }

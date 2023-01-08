@@ -7,15 +7,20 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreSchoolRepository : EfCoreGenericRepository<School, BlogContext>, ISchoolRepository
+    public class EfCoreSchoolRepository : EfCoreGenericRepository<School>, ISchoolRepository
     {
+        public EfCoreSchoolRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<School> GetPageSchool()
         {
-            using (var context = new BlogContext())
-            {
-                    return context.Schools
-                                    .Where(i=>i.IsApproved).ToList();
-            }
+                return BlogContext.Schools
+                                .Where(i=>i.IsApproved).ToList();
+            
         }
     }
 }

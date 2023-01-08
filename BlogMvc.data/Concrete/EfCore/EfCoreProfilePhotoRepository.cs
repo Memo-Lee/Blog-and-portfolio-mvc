@@ -5,16 +5,22 @@ using BlogMvc.entity;
 
 namespace BlogMvc.data.Concrete.EfCore
 {
-    public class EfCoreProfilePhotoRepository:EfCoreGenericRepository<ProfilePhoto,BlogContext>,IProfilePhotoRepository
+    public class EfCoreProfilePhotoRepository:EfCoreGenericRepository<ProfilePhoto>,IProfilePhotoRepository
     {
+        public EfCoreProfilePhotoRepository(BlogContext context): base(context)
+        {
+            
+        }
+        private BlogContext BlogContext{
+            get{return context as BlogContext;}
+        }
         public List<ProfilePhoto> GetHomePageProfilePhoto()
         {
-            using (var context = new BlogContext())
-            {
-                return context.ProfilePhotos
-                                .Where(i=>i.IsApproved).ToList();
-            }
+
+            return BlogContext.ProfilePhotos
+                            .Where(i=>i.IsApproved).ToList();
         }
+        
         
     }
 }
