@@ -15,16 +15,9 @@ namespace BlogMvc.webui.Models
         public string Bannerİmage { get; set; }
         public bool IsHome { get; set; }
     }
-    public class NoiceTextModel
-    {
-        public int NoiceId { get; set; }
-        public string NoiceContent { get; set; }
-        public bool IsHome { get; set; }
-    }
     public class HomeBannerListViewModel
         {
             public List<HomeBanner> HomeBanners { get; set; }
-            public List<NoiceText> NoiceTexts { get; set; }
             public List<SocialMedia> SocialMedias { get; set; }
             public List<ProfilePhoto> ProfilePhotos { get; set; }
             public List<Blog> Blogs { get; set; }
@@ -46,7 +39,6 @@ namespace BlogMvc.webui.Models
     public class HomeMenuListViewModel
     {
         public List<ProfilePhoto> ProfilePhotos { get; set; } = new();
-        public List<NoiceText> NoiceTexts { get; set; } = new();
     }
 
 }

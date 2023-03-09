@@ -55,10 +55,6 @@ namespace BlogMvc.data.Concrete.EfCore
             //         {
             //             context.AddRange(HomeBanners);
             //         }
-            //         if (context.NoiceTexts.Count() == 0)
-            //         {
-            //             context.AddRange(NoiceTexts);
-            //         }
             //         if (context.Careers.Count() == 0)
             //         {
             //             context.AddRange(Careers);
@@ -119,9 +115,6 @@ namespace BlogMvc.data.Concrete.EfCore
         };
         private static HomeBanner[] HomeBanners = {
             new HomeBanner() {BannerHeader="Yazılım",BannerText="C# - C++ - Javascript - Asp.Net", Bannerİmage="1.jpg",IsHome=true}
-        };
-        private static NoiceText[] NoiceTexts = {
-            new NoiceText() {NoiceContent="Yazılımcı arkadaşlar bana ulaşsın",IsHome=true}
         };
         private static Career[] Careers = {
             new Career() {BusinessCompany="Fuzul İnşaat",BusinessName="Civil Engineer",BusinessTime="2018-2019",IsApproved=true}

@@ -21,7 +21,6 @@ namespace BlogMvc.services
             serviceCollection.AddScoped<ISkillRepository,EfCoreSkillRepository>();
             serviceCollection.AddScoped<ICategorySkillRepository,EfCoreCategorySkillRepository>();
             serviceCollection.AddScoped<IHomeBannerRepository,EfCoreHomeBannerRepository>();
-            serviceCollection.AddScoped<INoiceTextRepository,EfCoreNoiceTextRepository>();
             serviceCollection.AddScoped<ICareerRepository,EfCoreCareerRepository>();
             serviceCollection.AddScoped<ISocialMediaRepository,EfCoreSocialMediaRepository>();
             serviceCollection.AddScoped<IProfilePhotoRepository,EfCoreProfilePhotoRepository>();

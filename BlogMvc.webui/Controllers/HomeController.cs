@@ -19,20 +19,17 @@ namespace BlogMvc.Controllers
         // burdaki işlem daha bitmedi
         private readonly IBlogRepository _blogRepository;
         private readonly IHomeBannerRepository _homebannerRepository;
-        private readonly INoiceTextRepository _noicetextRepository;
         private readonly ISocialMediaRepository _socialmediaRepository;
         private readonly IProfilePhotoRepository _profilephotoRepository;
         // İnject(enjekte etme) işlemi devamı Startup.cs'de halledildi
         public HomeController(
         IBlogRepository blogRepository,
         IHomeBannerRepository homebannerRepository,
-        INoiceTextRepository noicetextRepository,
         ISocialMediaRepository socialmediaRepository,
         IProfilePhotoRepository profilephotoRepository)
         {
             this._blogRepository = blogRepository;
             this._homebannerRepository = homebannerRepository;
-            this._noicetextRepository = noicetextRepository;
             this._socialmediaRepository = socialmediaRepository;
             this._profilephotoRepository = profilephotoRepository;
         }
@@ -42,7 +39,6 @@ namespace BlogMvc.Controllers
             {
                 Blogs = _blogRepository.GetHomePageBlogs(),
                 HomeBanners = _homebannerRepository.GetHomePageHomeBanner(),
-                NoiceTexts = _noicetextRepository.GetHomePageNoiceText(),
                 SocialMedias = _socialmediaRepository.GetHomePageSocialMedia(),
                 ProfilePhotos = _profilephotoRepository.GetHomePageProfilePhoto()
             };

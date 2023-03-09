@@ -27,7 +27,6 @@ namespace BlogMvc.data
         public DbSet<Skill> Skills {get; set; }
         public DbSet<CategorySkill> CategorySkills {get; set; }
         public DbSet<HomeBanner> HomeBanners {get; set; }
-        public DbSet<NoiceText> NoiceTexts {get; set; }
         public DbSet<Career> Careers {get; set; }
         public DbSet<SocialMedia> SocialMedias {get; set; }
         public DbSet<ProfilePhoto> ProfilePhotos {get; set; }

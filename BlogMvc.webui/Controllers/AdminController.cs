@@ -31,7 +31,6 @@ namespace BlogMvc.webui.Controllers
         private ISchoolRepository _schoolRepository;
         private ISkillRepository _skillRepository;
         private IHomeBannerRepository _homebannerRepository;
-        private INoiceTextRepository _noicetextRepository;
         private ICareerRepository _careerRepository;
         private ISocialMediaRepository _socialmediaRepository;
         private IProfilePhotoRepository _profilemediaRepository;
@@ -44,7 +43,7 @@ namespace BlogMvc.webui.Controllers
                                 ICategoryRepository categoryRepository,ICategoryProjectRepository categoryprojectRepository,
                                 IAboutRepository aboutRepository,ISchoolRepository schoolRepository,ISkillRepository skillRepository,
                                 ICategorySkillRepository categoryskillRepository ,IHomeBannerRepository homebannerRepository,
-                                INoiceTextRepository noicetextRepository,ICareerRepository careerRepository,ISocialMediaRepository socialmediaRepository,
+                                ICareerRepository careerRepository,ISocialMediaRepository socialmediaRepository,
                                 IProfilePhotoRepository profilephotoRepository,RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager)
         {
             _blogRepository=blogRepository;
@@ -56,7 +55,6 @@ namespace BlogMvc.webui.Controllers
             _schoolRepository= schoolRepository;
             _skillRepository= skillRepository;
             _homebannerRepository=homebannerRepository;
-            _noicetextRepository= noicetextRepository;
             _careerRepository=careerRepository;
             _socialmediaRepository =socialmediaRepository;
             _profilemediaRepository=profilephotoRepository;
@@ -1371,50 +1369,6 @@ namespace BlogMvc.webui.Controllers
             
             return RedirectToAction("HomeBannerList");
         }
-
-
-/* *************************************************NoiceText Header************************************** */
-/* NoiceText Edit işlemi */
-         [HttpGet("/Admin/NoiceTextEdit/{id?}")]
-        public IActionResult NoiceTextEdit(int? id)
-        { 
-            if (id==null)
-            {
-                return NotFound();
-            }
-            var entity = _noicetextRepository.GetById((int) id);
-
-            if (entity==null)
-            {
-                return NotFound();
-            }
-
-            var model= new NoiceTextModel()
-            {
-                NoiceId=entity.NoiceId,
-                NoiceContent=entity.NoiceContent,
-                IsHome=entity.IsHome
-            };
-
-            return View(model);
-        }
-        [HttpPost]
-        public IActionResult NoiceTextEdit(NoiceTextModel model)
-        {
-            var entity = _noicetextRepository.GetById(model.NoiceId);
-            
-            if (entity==null)
-            {
-                return NotFound();
-            }
-            entity.NoiceContent=model.NoiceContent;
-            entity.IsHome=model.IsHome;
-            _noicetextRepository.Update(entity);
-
-            // msg Aletmessage gelcek.
-            return RedirectToAction("HomeMenu");
-        }
-
 
 /* *************************************************Career************************************** */
 

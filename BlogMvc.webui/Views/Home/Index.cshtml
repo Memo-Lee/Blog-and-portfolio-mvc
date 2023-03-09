@@ -26,9 +26,6 @@
         </li>
     }
 } *@
-@{
-    var noiceyazisi = Model.NoiceTexts;
-}
     <div style="margin-right: 0;" class="row p-0">
         <div class="fh5co-index-main m-0 p-0">
             <div class="row m-0 p-0">
@@ -38,19 +35,6 @@
                             <i class="fa-solid fa-bars"></i>
                         </button>
                     </a>
-                </div>
-                <div class="col-md-12 m-0 p-0">
-                    @if (noiceyazisi.Count>0)
-                    {
-                        @foreach (var item in Model.NoiceTexts)
-                        {
-                            <div class="row m-0">
-                                <div class="wrapper col-md-12 text-center">
-                                    <span class="typing-demo">@Html.Raw(item.NoiceContent)</span>
-                                </div>
-                            </div>
-                        }
-                    }
                 </div>
             </div>
 

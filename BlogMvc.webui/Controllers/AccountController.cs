@@ -103,7 +103,6 @@ namespace BlogMvc.webui.Controllers
                     userId = user.Id,
                     token = code
                 });
-                Console.WriteLine(url);
                 // email (email gönderme)
                 await _emailSender.SendEmailAsync(model.Email,"Hesabınızı onaylayınız.",$"Lütfen email hesabınızı onaylamak için linke <a href='https://localhost:5001{url}'>tıklayınız.</a>");
 
@@ -188,7 +187,6 @@ namespace BlogMvc.webui.Controllers
                 userId = user.Id,
                 token = code
             });
-            Console.WriteLine(url);
             // email (email gönderme)
             await _emailSender.SendEmailAsync(Email,"Reset Password.",$" Şifrenizi yenilemek için linke <a href='https://localhost:5001{url}'>tıklayınız.</a>");
 
