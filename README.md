@@ -40,6 +40,11 @@ This project is a dynamic blog and portfolio website application created using C
 * Controller tanımlaması
 * Postman ile CRUD işlemler
 
+## Uygulamanın ilk izlenimleri
+
+![This is an image](https://github.com/Memo-Lee/BlogAndPortfolioMvc/blob/main/BlogMvc.webui/wwwroot/images/Sc.png)
+
+
 ## Gerekli Araç ve Kurulumlar
 
 * [.NET Core 5.0.0 SDK](https://dotnet.microsoft.com/download)
